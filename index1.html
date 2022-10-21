@@ -38,5 +38,62 @@
     </ul>
    </div>
   </div>
-  <script src="index1.js"></script>
+  <script> </script>
   </body>
+  var form = document.getElementById('addForm');
+  var itemList = document.getElementById('items');
+  //var editBtn = document.getElementsByClassName('btn btn-dark');//
+  //var filter = document.getElementById('filter');//
+
+// Form submit event
+  form.addEventListener('submit', addItem);
+  // Delete event
+  
+  //itemList.addEventListener('click', editBtn);//=1
+  
+  function addItem(e){
+      e.preventDefault();
+
+
+  //to add li item create new input value//
+  var newItem = document.getElementById('item').value;
+  //create li item//
+  var li=document.createElement('li');
+  //add class//
+  li.className='list-group-item';
+  //console.log(li);
+  //add textnode with input value//
+  li.appendChild(document.createTextNode(newItem));
+  
+  //to add delete button//
+  var deleteBtn = document.createElement('button');
+// Add classes to del button
+   deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+// Append text node
+   deleteBtn.appendChild(document.createTextNode('X'));
+// Append button to li
+li.appendChild(deleteBtn);
+itemList.appendChild(li);
+  }
+  var liSelector=document.querySelectorAll('li');
+  for(let i=0;i<liSelector.length;i++){
+    let edtbtn=document.createElement('button');
+    edtbtn.className='edit-button btn-danger btn-sm float-right edit';
+    edtbtn.appendChild(document.createTextNode('edit'));
+    liSelector[i].appendChild(edtbtn);
+  }
+
+
+  var itemList = document.getElementById('items');
+  itemList.addEventListener('click', deleteFn);
+  
+  function deleteFn(e){
+if(e.target.classList.contains('delete')){
+  if(confirm('Are You Sure?')){
+    var li = e.target.parentElement;
+    itemList.removeChild(li);
+  }
+}
+}
+</body>
+</html>
