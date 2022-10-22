@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>JS For Beginners</title>
+    
+  </head>
+  <body>
+
+      <form onsubmit="saveToLocalStorage(event)">
+        <h1>Add User</h1>
+        <div class="msg"></div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" name="name">
+        </div>
+        <div>
+          <label for="email">Email:</label>
+          <input type="text" name="email">
+        </div>
+        <div>
+            <label for="number">Phone_No:</label>
+            <input type="number" name="number">
+        </div>
+        <input class="btn" type="submit" value="Submit">
+      </form>
+    <script>
+        function saveToLocalStorage(event){
+            event.preventDefault();
+            const name=event.target.name.value;
+            const email=event.target.email.value;
+            const number=event.target.number.value;
+            localStorage.setItem('name',name);
+            localStorage.setItem('email',email);
+            localStorage.setItem('number',number);
+        }
+    </script>
+  </body>
+</html>
